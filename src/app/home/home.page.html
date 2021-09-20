@@ -1,0 +1,40 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Cryptocurrency
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Cryptocurrency</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-refresher slot="fixed" (ionRefresh)="startProcess($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+<div  [hidden]="!showErrorMsg">
+  <ion-card>
+    <ion-card-content>
+      {{errorMsg}}
+    </ion-card-content>
+  </ion-card>
+
+</div>
+  <div id="container" [hidden]="showErrorMsg">
+    <ion-list  >
+      <ion-item *ngFor="let res of record" (click)="navigateToDetails(res.name)">
+        <ion-label>{{res.name}}</ion-label>
+        
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>
+<ion-footer style="height:6% ; background-color: #ffffff;position: relative">
+  <div   style="width: 100%;height: 100%;justify-content: center;align-items: center;display: flex;">
+    <ion-text  style="margin-left: 5px; color: orgColor">CoinMarketCap</ion-text>
+  </div>
+</ion-footer>
+

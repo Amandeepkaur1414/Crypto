@@ -1,0 +1,59 @@
+<ng-container >
+  <ion-header  style="max-height: 130px; position: absolute; top: 0;">
+    <ion-toolbar style="display: flex;">
+      <ion-buttons slot="start" style="flex-flow: column;">
+        <ion-button (click)="back()">
+          <ion-icon slot="start" name="arrow-back"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <div style="display: flex; justify-content: center;">
+        <ion-title style="margin-left: 2%;padding: 0px;">
+         {{name | uppercase}} 
+         <ion-chip>
+          <ion-label>{{details.symbol}}</ion-label>
+        </ion-chip>
+        </ion-title>
+      </div>
+
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container" style="margin-top:45px;">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+            <ion-card>
+              <ion-card-content>{{details.name}} Price  Today
+                <div class="name">{{price}}</div>
+              </ion-card-content>
+            </ion-card>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-list>
+            <ion-item >
+              <ion-label>Market Cap </ion-label><div item-end>{{marketCap}}</div>
+              
+            </ion-item>
+            <ion-item >
+              <ion-label>Fully Diluted Market Cap </ion-label><div item-end>{{fully_diluted_market_cap}}</div>
+              
+            </ion-item>
+            <ion-item >
+              <ion-label>Volume </ion-label><div item-end>{{volume}}</div>
+              
+            </ion-item>
+            <ion-item >
+              <ion-label>Circulating Supply</ion-label><div item-end>{{circulating_supply}}</div> 
+              
+            </ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <div>
+    <canvas #linechart class="cnvs" height="200" width="200">{{linechart}}</canvas>
+  </div>
+  </ng-container>
